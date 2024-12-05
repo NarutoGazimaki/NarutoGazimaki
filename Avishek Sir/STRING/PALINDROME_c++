@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+class PalindromeChecker {
+private:
+    string str;
+
+public:
+    PalindromeChecker(string input) {
+        str = input;
+    }
+
+    bool isPalindrome() {
+        string reversed = str;
+        reverse(reversed.begin(), reversed.end());
+        return (str == reversed);
+    }
+
+    void displayResult() {
+        if (isPalindrome()) {
+            cout << "\"" << str << "\" is a palindrome." << endl;
+        } else {
+            cout << "\"" << str << "\" is not a palindrome." << endl;
+        }
+    }
+};
+
+int main() {
+    string input;
+
+    cout << "Enter a string: ";
+    getline(cin, input);
+
+    PalindromeChecker checker(input);
+    checker.displayResult();
+
+    return 0;
+}
